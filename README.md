@@ -4,34 +4,19 @@
 
 ```mermaid
 classDiagram
-  class User {
-    +String name
+  class Cliente {
+    +Long id
+    +String nome
+    +String cpf
+    +String endereco
   }
 
-  class Account {
-    +String number
-    +String agency
-    +float balance
-    +float limit
+  class Conta {
+    +Long id
+    +String mesReferencia
+    +BigDecimal valor
+    +boolean paga
   }
 
-  class Feature {
-    +String icon
-    +String description
-  }
-
-  class Card {
-    +String number
-    +float limit
-  }
-
-  class News {
-    +String icon
-    +String description
-  }
-
-  User "1" *-- "1" Account
-  User "1" *-- "1" Card
-  User "1" *-- "N" Feature
-  User "1" *-- "N" News
+  Cliente "1" --> "*" Conta
 ```
