@@ -13,17 +13,12 @@ public class User {
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Account account;
+    private String cpf;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Card card;
+    private String endereco;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Features> features;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<News> news;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Account> accounts;
 
     public Long getId() {
         return id;
@@ -41,35 +36,27 @@ public class User {
         this.name = name;
     }
 
-    public Account getAccount() {
-        return account;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public Card getCard() {
-        return card;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public List<Features> getFeatures() {
-        return features;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setFeatures(List<Features> features) {
-        this.features = features;
-    }
-
-    public List<News> getNews() {
-        return news;
-    }
-
-    public void setNews(List<News> news) {
-        this.news = news;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 }
