@@ -12,12 +12,10 @@ public class User {
     private Long id;
 
     private String name;
-
     private String cpf;
-
     private String endereco;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Account> accounts;
 
     public Long getId() {

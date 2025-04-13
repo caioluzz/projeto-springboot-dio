@@ -11,14 +11,14 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String number;
+
+    private BigDecimal monthValue;
+    private BigDecimal yearValue;
 
     @Column(name = "account_value", precision = 13, scale = 2)
     private BigDecimal value;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     public Long getId() {
         return id;
@@ -29,11 +29,29 @@ public class Account {
     }
 
     public String getNumber() {
+
         return number;
     }
 
     public void setNumber(String number) {
+
         this.number = number;
+    }
+
+    public BigDecimal getMonth() {
+        return monthValue;
+    }
+
+    public void setMonth(BigDecimal month) {
+        this.monthValue = month;
+    }
+
+    public BigDecimal getYear() {
+        return yearValue;
+    }
+
+    public void setYear(BigDecimal year) {
+        this.yearValue = year;
     }
 
     public BigDecimal getValue() {
@@ -43,12 +61,5 @@ public class Account {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
-
-    public User getUser() {
-        return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-}
